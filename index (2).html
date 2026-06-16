@@ -1,0 +1,971 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Joseph Paul | Full Stack Developer</title>
+<meta name="description" content="Joseph Paul - Full Stack Developer based in Dar es Salaam, Tanzania.">
+
+<!-- Google Fonts: Poppins -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<style>
+/* ===================================================================
+   1. ROOT VARIABLES — Dark Blue / White / Cyan design system
+   =================================================================== */
+:root {
+  --navy-deep:   #0a1120;
+  --navy:        #101b33;
+  --navy-light:  #16264a;
+  --navy-border: rgba(244, 247, 251, 0.08);
+  --white:       #f4f7fb;
+  --slate:       #9fb0cb;
+  --cyan:        #22d3ee;
+  --cyan-deep:   #0ea5c4;
+  --cyan-glow:   rgba(34, 211, 238, 0.15);
+
+  --font-main: 'Poppins', sans-serif;
+
+  --radius: 14px;
+  --transition: 0.3s ease;
+  --max-width: 1160px;
+}
+
+/* ===================================================================
+   2. RESET
+   =================================================================== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-main);
+  background: var(--navy-deep);
+  color: var(--white);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+img, svg { max-width: 100%; display: block; }
+
+a { color: inherit; text-decoration: none; }
+
+ul { list-style: none; }
+
+.container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+section { padding: 110px 0; position: relative; }
+
+/* Shared section heading style */
+.section-tag {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 14px;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 3.4vw, 2.6rem);
+  font-weight: 700;
+  margin-bottom: 18px;
+}
+
+.section-desc {
+  color: var(--slate);
+  max-width: 620px;
+  font-size: 1rem;
+}
+
+.section-head { margin-bottom: 56px; }
+.section-head.center { text-align: center; margin-left: auto; margin-right: auto; }
+.section-head.center .section-desc { margin: 0 auto; }
+
+/* Reusable button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 14px 28px;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: transform var(--transition), box-shadow var(--transition), background var(--transition);
+  cursor: pointer;
+  border: 1px solid transparent;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, var(--cyan), var(--cyan-deep));
+  color: var(--navy-deep);
+}
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 30px -10px var(--cyan-glow);
+}
+
+.btn-outline {
+  border-color: var(--navy-border);
+  color: var(--white);
+}
+.btn-outline:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-3px);
+}
+
+/* ===================================================================
+   3. HEADER / NAVIGATION  (CSS-only mobile menu, no JavaScript)
+   =================================================================== */
+.site-header {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 100;
+  background: rgba(10, 17, 32, 0.85);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.nav-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 76px;
+}
+
+.logo {
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+.logo span { color: var(--cyan); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+}
+
+.nav-links a {
+  font-size: 0.92rem;
+  font-weight: 500;
+  color: var(--slate);
+  transition: color var(--transition);
+  position: relative;
+}
+.nav-links a:hover { color: var(--cyan); }
+
+.nav-toggle, .hamburger { display: none; }
+
+/* ===================================================================
+   4. HERO SECTION
+   =================================================================== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 110px;
+  background:
+    radial-gradient(circle at 80% 20%, var(--cyan-glow), transparent 45%),
+    radial-gradient(circle at 10% 90%, rgba(34,211,238,0.08), transparent 40%),
+    var(--navy-deep);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.05fr 0.95fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.hero-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: var(--cyan);
+  background: var(--cyan-glow);
+  padding: 8px 16px;
+  border-radius: 999px;
+  margin-bottom: 22px;
+}
+.hero-eyebrow i { font-size: 0.7rem; }
+
+.hero h1 {
+  font-size: clamp(2.6rem, 5.4vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 8px;
+}
+
+.hero h1 .accent { color: var(--cyan); }
+
+.hero .role {
+  font-size: clamp(1.1rem, 2vw, 1.4rem);
+  font-weight: 500;
+  color: var(--slate);
+  margin-bottom: 22px;
+}
+
+.hero p.desc {
+  color: var(--slate);
+  max-width: 540px;
+  margin-bottom: 34px;
+}
+
+.hero-actions { display: flex; gap: 16px; flex-wrap: wrap; }
+
+/* Hero code panel — signature visual element */
+.code-card {
+  background: var(--navy);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  box-shadow: 0 30px 60px -30px rgba(0,0,0,0.6);
+  overflow: hidden;
+}
+
+.code-card-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 14px 18px;
+  background: var(--navy-light);
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.code-dot { width: 11px; height: 11px; border-radius: 50%; }
+.code-dot.red { background: #ef5f5f; }
+.code-dot.yellow { background: #e7c46c; }
+.code-dot.green { background: #66c98f; }
+
+.code-card-bar span.filename {
+  margin-left: 10px;
+  font-size: 0.78rem;
+  color: var(--slate);
+  font-family: 'Courier New', monospace;
+}
+
+.code-card pre {
+  padding: 28px 26px;
+  font-family: 'Courier New', monospace;
+  font-size: 0.88rem;
+  line-height: 1.85;
+  overflow-x: auto;
+}
+
+.code-card .c-key { color: var(--cyan); }
+.code-card .c-str { color: #9be8a8; }
+.code-card .c-pun { color: var(--slate); }
+.code-card .c-com { color: #5b6c87; }
+
+/* ===================================================================
+   5. ABOUT SECTION
+   =================================================================== */
+.about { background: var(--navy-deep); }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 64px;
+  align-items: center;
+}
+
+.about-card {
+  background: var(--navy);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  padding: 40px;
+}
+
+.about-card .big-quote {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: var(--white);
+  margin-bottom: 18px;
+}
+
+.about-card .big-quote .accent { color: var(--cyan); }
+
+.facts-list { margin-top: 30px; display: grid; gap: 16px; }
+
+.facts-list li {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  font-size: 0.92rem;
+  color: var(--slate);
+}
+
+.facts-list li i {
+  width: 36px; height: 36px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cyan-glow);
+  color: var(--cyan);
+  border-radius: 8px;
+  flex-shrink: 0;
+}
+
+.about-text p { color: var(--slate); margin-bottom: 18px; }
+
+.badge-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 24px; }
+.badge {
+  font-size: 0.82rem;
+  font-weight: 500;
+  padding: 8px 16px;
+  border: 1px solid var(--navy-border);
+  border-radius: 999px;
+  color: var(--cyan);
+}
+
+/* ===================================================================
+   6. SKILLS SECTION
+   =================================================================== */
+.skills { background: var(--navy); }
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 22px;
+}
+
+.skill-card {
+  background: var(--navy-deep);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  padding: 24px 26px;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.skill-card:hover { transform: translateY(-4px); border-color: var(--cyan); }
+
+.skill-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 14px;
+}
+
+.skill-name { display: flex; align-items: center; gap: 12px; font-weight: 600; }
+.skill-name i { color: var(--cyan); font-size: 1.15rem; width: 22px; text-align: center; }
+
+.skill-percent { color: var(--cyan); font-weight: 600; font-size: 0.9rem; }
+
+.skill-bar {
+  width: 100%;
+  height: 8px;
+  background: var(--navy-light);
+  border-radius: 999px;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--cyan-deep), var(--cyan));
+  animation: fillBar 1.6s cubic-bezier(0.16, 0.84, 0.44, 1) forwards;
+}
+
+/* CSS-only fill animation: starts at 0%, ends at each bar's inline width */
+@keyframes fillBar { from { width: 0%; } }
+
+/* ===================================================================
+   7. SERVICES SECTION
+   =================================================================== */
+.services { background: var(--navy-deep); }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--navy);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  padding: 34px 28px;
+  transition: transform var(--transition), border-color var(--transition), box-shadow var(--transition);
+}
+.service-card:hover {
+  transform: translateY(-6px);
+  border-color: var(--cyan);
+  box-shadow: 0 24px 50px -28px var(--cyan-glow);
+}
+
+.service-icon {
+  width: 56px; height: 56px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--cyan-glow);
+  color: var(--cyan);
+  border-radius: 12px;
+  font-size: 1.4rem;
+  margin-bottom: 22px;
+}
+
+.service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
+.service-card p { color: var(--slate); font-size: 0.92rem; }
+
+/* ===================================================================
+   8. PORTFOLIO SECTION
+   =================================================================== */
+.portfolio { background: var(--navy); }
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 26px;
+}
+
+.project-card {
+  background: var(--navy-deep);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.project-card:hover { transform: translateY(-6px); border-color: var(--cyan); }
+
+.project-thumb {
+  height: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.4rem;
+  color: var(--cyan);
+  background:
+    linear-gradient(135deg, var(--navy-light), var(--navy-deep));
+  border-bottom: 1px solid var(--navy-border);
+}
+
+.project-body { padding: 26px; }
+.project-body h3 { font-size: 1.05rem; font-weight: 600; margin-bottom: 10px; }
+.project-body p { color: var(--slate); font-size: 0.9rem; margin-bottom: 18px; }
+
+.project-tags { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 18px; }
+.project-tags span {
+  font-size: 0.74rem;
+  font-weight: 500;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--cyan-glow);
+  color: var(--cyan);
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: var(--white);
+  transition: gap var(--transition), color var(--transition);
+}
+.project-link:hover { color: var(--cyan); gap: 12px; }
+
+/* ===================================================================
+   9. CONTACT SECTION
+   =================================================================== */
+.contact { background: var(--navy-deep); }
+
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 22px;
+  margin-bottom: 56px;
+}
+
+.contact-card {
+  background: var(--navy);
+  border: 1px solid var(--navy-border);
+  border-radius: var(--radius);
+  padding: 30px;
+  text-align: center;
+  transition: transform var(--transition), border-color var(--transition);
+}
+.contact-card:hover { transform: translateY(-4px); border-color: var(--cyan); }
+
+.contact-card i {
+  font-size: 1.5rem;
+  color: var(--cyan);
+  background: var(--cyan-glow);
+  width: 58px; height: 58px;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  margin: 0 auto 18px;
+}
+
+.contact-card h4 { font-size: 0.95rem; font-weight: 600; margin-bottom: 8px; }
+.contact-card p, .contact-card a { color: var(--slate); font-size: 0.92rem; }
+
+/* Social links */
+.social-row {
+  display: flex;
+  justify-content: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.social-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border: 1px solid var(--navy-border);
+  border-radius: 999px;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--slate);
+  transition: all var(--transition);
+}
+.social-link:hover {
+  border-color: var(--cyan);
+  color: var(--cyan);
+  transform: translateY(-3px);
+}
+.social-link i { font-size: 1rem; }
+
+/* ===================================================================
+   10. FOOTER
+   =================================================================== */
+.site-footer {
+  border-top: 1px solid var(--navy-border);
+  padding: 30px 0;
+  text-align: center;
+}
+.site-footer p { color: var(--slate); font-size: 0.86rem; }
+
+/* ===================================================================
+   11. RESPONSIVE BREAKPOINTS  (CSS-only hamburger included here)
+   =================================================================== */
+@media (max-width: 980px) {
+  .hero-grid, .about-grid { grid-template-columns: 1fr; }
+  .skills-grid { grid-template-columns: 1fr; }
+  .services-grid, .portfolio-grid { grid-template-columns: repeat(2, 1fr); }
+  .contact-grid { grid-template-columns: 1fr; }
+  .code-card { max-width: 460px; }
+}
+
+@media (max-width: 760px) {
+  section { padding: 80px 0; }
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    z-index: 110;
+  }
+  .hamburger span {
+    width: 26px; height: 2px;
+    background: var(--white);
+    transition: var(--transition);
+  }
+
+  .nav-links {
+    position: fixed;
+    top: 76px; right: 0;
+    width: 240px;
+    height: calc(100vh - 76px);
+    background: var(--navy);
+    border-left: 1px solid var(--navy-border);
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 36px 28px;
+    gap: 26px;
+    transform: translateX(100%);
+    transition: transform var(--transition);
+  }
+
+  .nav-toggle:checked ~ .nav-links {
+    transform: translateX(0);
+  }
+
+  .nav-toggle:checked ~ .hamburger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .nav-toggle:checked ~ .hamburger span:nth-child(2) { opacity: 0; }
+  .nav-toggle:checked ~ .hamburger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+}
+
+@media (max-width: 600px) {
+  .services-grid, .portfolio-grid { grid-template-columns: 1fr; }
+  .hero-actions { flex-direction: column; align-items: flex-start; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .skill-fill { animation: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- =====================================================
+     HEADER / NAVIGATION
+     ===================================================== -->
+<header class="site-header">
+  <div class="container nav-row">
+    <a href="#home" class="logo">Joseph<span>.</span>Paul</a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="hamburger"><span></span><span></span><span></span></label>
+
+    <nav class="nav-links">
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#services">Services</a>
+      <a href="#portfolio">Portfolio</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <!-- =====================================================
+       HERO SECTION
+       ===================================================== -->
+  <section class="hero" id="home">
+    <div class="container hero-grid">
+
+      <div class="hero-text">
+        <span class="hero-eyebrow"><i class="fa-solid fa-circle"></i> Available for opportunities</span>
+        <h1>Joseph <span class="accent">Paul</span></h1>
+        <p class="role">Full Stack Developer</p>
+        <p class="desc">I am a passionate Full Stack Developer with strong experience in web development, software development, and problem-solving using multiple programming languages. I specialize in creating modern, responsive, and user-friendly applications.</p>
+        <div class="hero-actions">
+          <a href="#portfolio" class="btn btn-primary"><i class="fa-solid fa-arrow-right"></i> View My Work</a>
+          <a href="#contact" class="btn btn-outline"><i class="fa-regular fa-envelope"></i> Contact Me</a>
+        </div>
+      </div>
+
+      <div class="code-card">
+        <div class="code-card-bar">
+          <span class="code-dot red"></span>
+          <span class="code-dot yellow"></span>
+          <span class="code-dot green"></span>
+          <span class="filename">developer.js</span>
+        </div>
+        <pre><span class="c-key">const</span> developer <span class="c-pun">=</span> <span class="c-pun">{</span>
+  name<span class="c-pun">:</span> <span class="c-str">"Joseph Paul"</span><span class="c-pun">,</span>
+  role<span class="c-pun">:</span> <span class="c-str">"Full Stack Developer"</span><span class="c-pun">,</span>
+  location<span class="c-pun">:</span> <span class="c-str">"Dar es Salaam, TZ"</span><span class="c-pun">,</span>
+  stack<span class="c-pun">:</span> <span class="c-pun">[</span>
+    <span class="c-str">"HTML5"</span><span class="c-pun">,</span> <span class="c-str">"CSS3"</span><span class="c-pun">,</span> <span class="c-str">"JavaScript"</span><span class="c-pun">,</span>
+    <span class="c-str">"PHP"</span><span class="c-pun">,</span> <span class="c-str">"Python"</span><span class="c-pun">,</span> <span class="c-str">"Java"</span><span class="c-pun">,</span>
+    <span class="c-str">"C"</span><span class="c-pun">,</span> <span class="c-str">"C++"</span>
+  <span class="c-pun">]</span><span class="c-pun">,</span>
+  <span class="c-com">// always building, always learning</span>
+  status<span class="c-pun">:</span> <span class="c-str">"open to work"</span>
+<span class="c-pun">}</span><span class="c-pun">;</span></pre>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       ABOUT SECTION
+       ===================================================== -->
+  <section class="about" id="about">
+    <div class="container about-grid">
+
+      <div class="about-card">
+        <p class="big-quote">Turning ideas into <span class="accent">scalable</span> software.</p>
+        <ul class="facts-list">
+          <li><i class="fa-solid fa-location-dot"></i> Dar es Salaam, Tanzania</li>
+          <li><i class="fa-solid fa-layer-group"></i> Front-End &amp; Back-End Development</li>
+          <li><i class="fa-solid fa-gears"></i> Scalable &amp; Efficient Applications</li>
+        </ul>
+      </div>
+
+      <div class="about-text">
+        <span class="section-tag">About Me</span>
+        <h2 class="section-title">Building software that performs &amp; looks great</h2>
+        <p>Joseph Paul is an experienced Full Stack Developer based in Dar es Salaam, Tanzania, with deep expertise across both front-end and back-end development. He works fluently across the full development cycle, from designing clean user interfaces to architecting reliable server-side systems.</p>
+        <p>His focus is on building applications that are not only functional but scalable and efficient, able to grow with the needs of a business while remaining fast, secure, and easy to maintain.</p>
+        <div class="badge-row">
+          <span class="badge">Full Stack</span>
+          <span class="badge">Problem Solver</span>
+          <span class="badge">Clean Code</span>
+          <span class="badge">Multi-Language</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SKILLS SECTION
+       ===================================================== -->
+  <section class="skills" id="skills">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-tag">Skills</span>
+        <h2 class="section-title">Technical Proficiency</h2>
+        <p class="section-desc">A snapshot of the languages and technologies I work with most.</p>
+      </div>
+
+      <div class="skills-grid">
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-html5"></i> HTML5</span>
+            <span class="skill-percent">98%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:98%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+            <span class="skill-percent">95%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:95%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-square-js"></i> JavaScript</span>
+            <span class="skill-percent">92%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:92%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-php"></i> PHP</span>
+            <span class="skill-percent">90%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:90%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-python"></i> Python</span>
+            <span class="skill-percent">94%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:94%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-brands fa-java"></i> Java</span>
+            <span class="skill-percent">88%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:88%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-solid fa-code"></i> C</span>
+            <span class="skill-percent">85%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:85%;"></div></div>
+        </div>
+
+        <div class="skill-card">
+          <div class="skill-top">
+            <span class="skill-name"><i class="fa-solid fa-code-branch"></i> C++</span>
+            <span class="skill-percent">87%</span>
+          </div>
+          <div class="skill-bar"><div class="skill-fill" style="width:87%;"></div></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       SERVICES SECTION
+       ===================================================== -->
+  <section class="services" id="services">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-tag">Services</span>
+        <h2 class="section-title">What I Can Do For You</h2>
+        <p class="section-desc">End-to-end development services covering every layer of your application.</p>
+      </div>
+
+      <div class="services-grid">
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Web Development</h3>
+          <p>Building fast, modern websites using clean and efficient code from front to back.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-mobile-screen-button"></i></div>
+          <h3>Responsive Website Design</h3>
+          <p>Designing layouts that adapt seamlessly across desktop, tablet, and mobile devices.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-server"></i></div>
+          <h3>Backend Development</h3>
+          <p>Engineering reliable server-side logic and systems that scale with your business.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-plug"></i></div>
+          <h3>API Development</h3>
+          <p>Creating secure, well-documented APIs that connect applications and services smoothly.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-diagram-project"></i></div>
+          <h3>Software Development</h3>
+          <p>Designing and building custom software solutions tailored to real-world problems.</p>
+        </div>
+
+        <div class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-database"></i></div>
+          <h3>Database Management</h3>
+          <p>Structuring and optimizing databases for performance, security, and reliability.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       PORTFOLIO SECTION
+       ===================================================== -->
+  <section class="portfolio" id="portfolio">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-tag">Portfolio</span>
+        <h2 class="section-title">Selected Projects</h2>
+        <p class="section-desc">A sample of systems and applications built across different domains.</p>
+      </div>
+
+      <div class="portfolio-grid">
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-cart-shopping"></i></div>
+          <div class="project-body">
+            <h3>E-Commerce Website</h3>
+            <p>A full-featured online store with product catalog, cart, and secure checkout flow.</p>
+            <div class="project-tags"><span>PHP</span><span>MySQL</span><span>JavaScript</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-school"></i></div>
+          <div class="project-body">
+            <h3>School Management System</h3>
+            <p>A platform for managing students, classes, attendance, and academic records.</p>
+            <div class="project-tags"><span>PHP</span><span>MySQL</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-hospital"></i></div>
+          <div class="project-body">
+            <h3>Hospital Management System</h3>
+            <p>A system for handling patient records, appointments, and hospital operations.</p>
+            <div class="project-tags"><span>Java</span><span>MySQL</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-boxes-stacked"></i></div>
+          <div class="project-body">
+            <h3>Inventory Management System</h3>
+            <p>A tool for tracking stock levels, suppliers, and warehouse operations in real time.</p>
+            <div class="project-tags"><span>Python</span><span>SQL</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-wallet"></i></div>
+          <div class="project-body">
+            <h3>Personal Finance Tracker</h3>
+            <p>An application for tracking income, expenses, and savings goals with clear insights.</p>
+            <div class="project-tags"><span>Python</span><span>JavaScript</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+        <div class="project-card">
+          <div class="project-thumb"><i class="fa-solid fa-briefcase"></i></div>
+          <div class="project-body">
+            <h3>Business Portfolio Website</h3>
+            <p>A professional showcase site highlighting a company's services and achievements.</p>
+            <div class="project-tags"><span>HTML5</span><span>CSS3</span></div>
+            <a href="#" class="project-link">View Project <i class="fa-solid fa-arrow-right"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- =====================================================
+       CONTACT SECTION
+       ===================================================== -->
+  <section class="contact" id="contact">
+    <div class="container">
+      <div class="section-head center">
+        <span class="section-tag">Contact</span>
+        <h2 class="section-title">Let's Work Together</h2>
+        <p class="section-desc">Have a project in mind? Reach out through any of the channels below.</p>
+      </div>
+
+      <div class="contact-grid">
+
+        <div class="contact-card">
+          <i class="fa-solid fa-phone"></i>
+          <h4>Phone</h4>
+          <p>0760 874 580</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-solid fa-location-dot"></i>
+          <h4>Location</h4>
+          <p>Dar es Salaam, Tanzania</p>
+        </div>
+
+        <div class="contact-card">
+          <i class="fa-regular fa-envelope"></i>
+          <h4>Email</h4>
+          <a href="mailto:josephpaul.dev@example.com">josephpaul.dev@example.com</a>
+        </div>
+
+      </div>
+
+      <div class="social-row">
+        <a href="https://instagram.com/josepoul1029" class="social-link"><i class="fa-brands fa-instagram"></i> josepoul1029</a>
+        <a href="https://facebook.com/josepoul1029" class="social-link"><i class="fa-brands fa-facebook"></i> josepoul1029</a>
+        <a href="https://x.com/josepoul1029" class="social-link"><i class="fa-brands fa-x-twitter"></i> josepoul1029</a>
+        <a href="https://youtube.com/@josepoul1029" class="social-link"><i class="fa-brands fa-youtube"></i> josepoul1029</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+<footer class="site-footer">
+  <div class="container">
+    <p>&copy; 2026 Joseph Paul | Full Stack Developer. All Rights Reserved.</p>
+  </div>
+</footer>
+
+</body>
+</html>
