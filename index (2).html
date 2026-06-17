@@ -15,9 +15,9 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
 <style>
-/* ===================================================================
+
    1. ROOT VARIABLES — Dark Blue / White / Cyan design system
-   =================================================================== */
+   
 :root {
   --navy-deep:   #0a1120;
   --navy:        #101b33;
@@ -36,9 +36,7 @@
   --max-width: 1160px;
 }
 
-/* ===================================================================
-   2. RESET
-   =================================================================== */
+/*reset  */
 * { margin: 0; padding: 0; box-sizing: border-box; }
 
 html { scroll-behavior: smooth; }
@@ -124,10 +122,7 @@ section { padding: 110px 0; position: relative; }
   color: var(--cyan);
   transform: translateY(-3px);
 }
-
-/* ===================================================================
-   3. HEADER / NAVIGATION  (CSS-only mobile menu, no JavaScript)
-   =================================================================== */
+/*header / navigation(css only mobile menu, no JavaScript  */
 .site-header {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -166,10 +161,7 @@ section { padding: 110px 0; position: relative; }
 .nav-links a:hover { color: var(--cyan); }
 
 .nav-toggle, .hamburger { display: none; }
-
-/* ===================================================================
-   4. HERO SECTION
-   =================================================================== */
+/*Hero section  */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -269,9 +261,7 @@ section { padding: 110px 0; position: relative; }
 .code-card .c-pun { color: var(--slate); }
 .code-card .c-com { color: #5b6c87; }
 
-/* ===================================================================
-   5. ABOUT SECTION
-   =================================================================== */
+/* about section */
 .about { background: var(--navy-deep); }
 
 .about-grid {
@@ -327,10 +317,7 @@ section { padding: 110px 0; position: relative; }
   border-radius: 999px;
   color: var(--cyan);
 }
-
-/* ===================================================================
-   6. SKILLS SECTION
-   =================================================================== */
+/*Skill section  */
 .skills { background: var(--navy); }
 
 .skills-grid {
@@ -377,10 +364,7 @@ section { padding: 110px 0; position: relative; }
 
 /* CSS-only fill animation: starts at 0%, ends at each bar's inline width */
 @keyframes fillBar { from { width: 0%; } }
-
-/* ===================================================================
-   7. SERVICES SECTION
-   =================================================================== */
+/*service section  */
 .services { background: var(--navy-deep); }
 
 .services-grid {
@@ -415,9 +399,7 @@ section { padding: 110px 0; position: relative; }
 .service-card h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; }
 .service-card p { color: var(--slate); font-size: 0.92rem; }
 
-/* ===================================================================
-   8. PORTFOLIO SECTION
-   =================================================================== */
+/*portifolio section  */
 .portfolio { background: var(--navy); }
 
 .portfolio-grid {
@@ -472,9 +454,7 @@ section { padding: 110px 0; position: relative; }
 }
 .project-link:hover { color: var(--cyan); gap: 12px; }
 
-/* ===================================================================
-   9. CONTACT SECTION
-   =================================================================== */
+/*contact section  */
 .contact { background: var(--navy-deep); }
 
 .contact-grid {
@@ -533,20 +513,14 @@ section { padding: 110px 0; position: relative; }
   transform: translateY(-3px);
 }
 .social-link i { font-size: 1rem; }
-
-/* ===================================================================
-   10. FOOTER
-   =================================================================== */
+/* footer */
 .site-footer {
   border-top: 1px solid var(--navy-border);
   padding: 30px 0;
   text-align: center;
 }
 .site-footer p { color: var(--slate); font-size: 0.86rem; }
-
-/* ===================================================================
-   11. RESPONSIVE BREAKPOINTS  (CSS-only hamburger included here)
-   =================================================================== */
+/*responsiveness (humbeger menu)  */
 @media (max-width: 980px) {
   .hero-grid, .about-grid { grid-template-columns: 1fr; }
   .skills-grid { grid-template-columns: 1fr; }
@@ -607,10 +581,7 @@ section { padding: 110px 0; position: relative; }
 </style>
 </head>
 <body>
-
-<!-- =====================================================
-     HEADER / NAVIGATION
-     ===================================================== -->
+<!-- header navigation -->
 <header class="site-header">
   <div class="container nav-row">
     <a href="#home" class="logo">Joseph<span>.</span>Paul</a>
@@ -631,9 +602,6 @@ section { padding: 110px 0; position: relative; }
 
 <main>
 
-  <!-- =====================================================
-       HERO SECTION
-       ===================================================== -->
   <section class="hero" id="home">
     <div class="container hero-grid">
 
@@ -671,10 +639,7 @@ section { padding: 110px 0; position: relative; }
 
     </div>
   </section>
-
-  <!-- =====================================================
-       ABOUT SECTION
-       ===================================================== -->
+<!--about section  -->
   <section class="about" id="about">
     <div class="container about-grid">
 
@@ -702,10 +667,7 @@ section { padding: 110px 0; position: relative; }
 
     </div>
   </section>
-
-  <!-- =====================================================
-       SKILLS SECTION
-       ===================================================== -->
+<!--skills section  -->
   <section class="skills" id="skills">
     <div class="container">
       <div class="section-head center">
@@ -783,10 +745,7 @@ section { padding: 110px 0; position: relative; }
       </div>
     </div>
   </section>
-
-  <!-- =====================================================
-       SERVICES SECTION
-       ===================================================== -->
+<!--service section  -->
   <section class="services" id="services">
     <div class="container">
       <div class="section-head center">
@@ -836,10 +795,7 @@ section { padding: 110px 0; position: relative; }
       </div>
     </div>
   </section>
-
-  <!-- =====================================================
-       PORTFOLIO SECTION
-       ===================================================== -->
+<!--portifolio section  -->
   <section class="portfolio" id="portfolio">
     <div class="container">
       <div class="section-head center">
@@ -913,10 +869,7 @@ section { padding: 110px 0; position: relative; }
       </div>
     </div>
   </section>
-
-  <!-- =====================================================
-       CONTACT SECTION
-       ===================================================== -->
+<!--contact section  -->
   <section class="contact" id="contact">
     <div class="container">
       <div class="section-head center">
@@ -957,10 +910,7 @@ section { padding: 110px 0; position: relative; }
   </section>
 
 </main>
-
-<!-- =====================================================
-     FOOTER
-     ===================================================== -->
+<!--footer section  -->
 <footer class="site-footer">
   <div class="container">
     <p>&copy; 2026 Joseph Paul | Full Stack Developer. All Rights Reserved.</p>
